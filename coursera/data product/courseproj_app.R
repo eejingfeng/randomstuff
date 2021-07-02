@@ -1,17 +1,8 @@
-#
-# This is a Shiny web application. You can run the application by clicking
-# the 'Run App' button above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
-
 library(shiny)
 
 vars <- setdiff(names(iris), "Species")
 
-# Define UI for application that draws a histogram
+# Define UI 
 ui <- fluidPage(
     
 
@@ -19,7 +10,7 @@ ui <- fluidPage(
     # Application title
     titlePanel('Iris k-means clustering'),
 
-    # Sidebar with a slider input for number of bins 
+    # Sidebar with a inputs
     sidebarLayout(
         sidebarPanel(
             selectInput('xcol', 'X Variable', vars),
@@ -27,14 +18,13 @@ ui <- fluidPage(
             numericInput('clusters', 'Cluster count', 3, min = 1, max = 9)
         ),
 
-        # Show a plot of the generated distribution
+        # Show a plot of the k-means clustering
         mainPanel(
            plotOutput("plot1")
         )
     )
 )
 
-# Define server logic required to draw a histogram
 server <- function(input, output) {
 
     # Combine the selected variables into a new data frame
