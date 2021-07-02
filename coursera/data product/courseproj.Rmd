@@ -2,7 +2,13 @@
 title: "Course Project"
 author: "JF Ee"
 date: "7/2/2021"
-output: slidy_presentation
+output:   
+  ioslides_presentation: default
+  html_document:
+    number_sections: yes
+    toc: yes
+  slidy_presentation: default
+mode: selfcontained
 ---
 
 ```{r setup, include=FALSE}
