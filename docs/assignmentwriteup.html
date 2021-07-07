@@ -203,13 +203,14 @@ set.seed(13)
 trainset &lt;- createDataPartition(train$classe, p=0.6, list=FALSE)
 validation &lt;- train[-trainset,]
 train &lt;- train[trainset,]</code></pre>
-<p>Training of RandomForest Model: Accuracy of training set to be 100% while accuracy of validation set to be 99.73%.</p>
+<p>Training of RandomForest Model: Accuracy of training is 100%.</p>
 <pre class="r"><code>randomforestmod &lt;- randomForest(classe~., data=train)
 
 trainpred &lt;- predict(randomforestmod,newdata=train)
 trainacc &lt;- sum(trainpred == train$classe)/dim(train)[1]
 paste(&quot;Accuracy on training set =&quot;,trainacc )</code></pre>
 <pre><code>## [1] &quot;Accuracy on training set = 1&quot;</code></pre>
+<p>Out of sample error is 99.73%.</p>
 <pre class="r"><code>validpred &lt;- predict(randomforestmod,newdata=validation)
 validacc &lt;- sum(validpred == validation$classe)/dim(validation)[1]
 paste(&quot;Accuracy on validation set =&quot;,validacc )</code></pre>

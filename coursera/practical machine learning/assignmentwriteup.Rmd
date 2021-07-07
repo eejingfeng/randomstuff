@@ -57,14 +57,17 @@ train <- train[trainset,]
 ```
 
 Training of RandomForest Model:
-Accuracy of training set to be 100% while accuracy of validation set to be 99.73%.
+Accuracy of training is 100%.
 ```{r}
 randomforestmod <- randomForest(classe~., data=train)
 
 trainpred <- predict(randomforestmod,newdata=train)
 trainacc <- sum(trainpred == train$classe)/dim(train)[1]
 paste("Accuracy on training set =",trainacc )
+```
 
+Out of sample error is 99.73%.
+```{r}
 validpred <- predict(randomforestmod,newdata=validation)
 validacc <- sum(validpred == validation$classe)/dim(validation)[1]
 paste("Accuracy on validation set =",validacc )
