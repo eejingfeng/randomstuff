@@ -1,6 +1,6 @@
 ---
-title: "US FARS (Fatality Analysis Recording System)"
-author: "JF Ee"
+title: "This is my First R Package about US FARS (Fatality Analysis Recording System)"
+author: "AH Uyekita"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >

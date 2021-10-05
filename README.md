@@ -1,23 +1,12 @@
----
-output: github_document
----
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
-```{r setup, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
-)
-```
-
 [![Build Status](https://travis-ci.org/AndersonUyekita/JHU_Building_R_Packages.svg?branch=master)](https://travis-ci.org/AndersonUyekita/JHU_Building_R_Packages)
 
-# Peer-graded Assignment: Building an R Package
+Peer-graded Assignment: Building an R Package
+=============================================
 
-## FARS Package <small>Building R Packages</small>
+FARS Package <small>Building R Packages</small>
+-----------------------------------------------
 
 ### Introduction
 
@@ -25,19 +14,21 @@ The purpose of this assessment is for you to combine your skills of creating, wr
 
 For this assessment you must
 
-1. write a vignette to include in your package using knitr and R Markdown
-2. write at least one test written using testthat
-3. put your package on GitHub
-4. set up the repository so that the package can be checked and built on Travis
-5. Once your package has built on Travis and the build is passing with no errors, warnings, or notes you should 6. add your Travis badge to the README.md file of your package repository.
+1.  write a vignette to include in your package using knitr and R Markdown
+2.  write at least one test written using testthat
+3.  put your package on GitHub
+4.  set up the repository so that the package can be checked and built on Travis
+5.  Once your package has built on Travis and the build is passing with no errors, warnings, or notes you should 6. add your Travis badge to the README.md file of your package repository.
 
-# Functions Modifications
+Functions Modifications
+=======================
 
 Unfortunatelly, I have made some modification to clear any `erros`, `warnings` and `notes` in all functions.
 
 The most annoying problem is the *no visible binding for global variable*.
 
-## How to fix this problem
+How to fix this problem
+-----------------------
 
 I have found in the Github an issues due to this problem:
 
@@ -55,11 +46,12 @@ Finally, I found the solution in dplyr website.
 
 I realize that in the first link of Github someone said the above quotation.
 
-## Modifications
+Modifications
+-------------
 
 Whenever I saw a magrittr operator I must use the `.data` to point the oculted dataset. An example is the `fars_read_years` function, where I put `.data$MONTH` and `.data$year`.
 
-```{r,eval=FALSE}
+``` r
 fars_read_years <- function(years) {
         lapply(years, function(year) {
                 file <- make_filename(year)
@@ -74,5 +66,3 @@ fars_read_years <- function(years) {
         })
 }
 ```
-
-
